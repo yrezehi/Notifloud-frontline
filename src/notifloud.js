@@ -1,5 +1,4 @@
 var Notifloud = function () {
-
     var DEFAULT_TITLE = "You forgot to add a title!";
     var DEFAULT_CONTENT = "You forgot to add content!"
 
