@@ -121,7 +121,7 @@
   animation: rotate 1s linear infinite;
 }
 .notifications .notification-inner .icon.loading {
-  background-color: #c90294;
+  background-color: #696969;
 }
 
 @keyframes rotate {
