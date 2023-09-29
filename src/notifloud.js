@@ -1,6 +1,7 @@
 var Notifloud = function () {
 
     var DEFAULT_TITLE = "You forgot to add a title!";
+    var DEFAULT_CONTENT = "You forgot to add content!"
 
     var notificationsContainer; 
 
@@ -21,20 +22,20 @@ var Notifloud = function () {
         document.body.appendChild(notificationsContainer);
     }
 
-    function create(title, type) {
-        var notificationElement = createNotificationElement(title, type);
+    function create(title, content, type) {
+        var notificationElement = createNotificationElement(title, content, type);
 
         notificationsContainer.appendChild(notificationElement);
     }
 
-    function createNotificationElement(title, type){
+    function createNotificationElement(title, content, type){
         return createElement(`
             <div class="notification">
                 <div class="notification-inner">
                     <div class="icon ${type}">${icons[type]}</div>
                     <div class="content">
                         <h2>${title ?? DEFAULT_TITLE}</h2>
-                        <p>conent</p>
+                        <p>${content ?? DEFAULT_CONTENT}</p>
                     </div>
                     <button class="close">${icons["close"]}</button>
                 </div>
@@ -52,11 +53,11 @@ var Notifloud = function () {
         return Object.freeze({
             initialize: initialize,
 
-            success: function (title) { create(title, "success") },
-            error: function (title) { create(title, "error") },
-            info: function (title) { create(title, "info") },
-            warning: function (title) { create(title, "warning") },
-            loading: function (title) { create(title, "loading") },
+            success: function (title, content) { create(title, content, "success") },
+            error: function (title, content) { create(title, content, "error") },
+            info: function (title, content) { create(title, content, "info") },
+            warning: function (title, content) { create(title, content, "warning") },
+            loading: function (title, content) { create(title, content, "loading") },
         });
     }();
 }();

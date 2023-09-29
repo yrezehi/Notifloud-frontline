@@ -18,7 +18,7 @@
         <div class="cloud cloud2"></div>
         <div class="cloud cloud3"></div>
     </div>
-    
+
     <div class="main-container"> 
         <div>
             <h2>Notifloud!</h2>
@@ -33,11 +33,11 @@
         Notifloud.initialize();
 
         var functions = [
-            function () { Notifloud.success("Success !") }, 
-            function () { Notifloud.error("Error !") }, 
-            function () { Notifloud.info("Information !") }, 
-            function () { Notifloud.warning("Warning !") }, 
-            function () { Notifloud.loading("Loading !") }, 
+            function () { Notifloud.success("Success !", "Write success message here") }, 
+            function () { Notifloud.error("Error !", "write error message here") }, 
+            function () { Notifloud.info("Information !", "Write information message here") }, 
+            function () { Notifloud.warning("Warning !", "Write warning message here") }, 
+            function () { Notifloud.loading("Loading !", "Write loading message here") }, 
         ]
 
         document.querySelector("[data-action=\"try-notification\"]").addEventListener("click", function (event){
