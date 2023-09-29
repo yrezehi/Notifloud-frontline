@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="../notifloud.css">
 
     <style>
+        :root {
+            --primary-color: #1a0c3d45;
+        }
+
         body,
         html {
             height: 100vh;
@@ -21,10 +25,9 @@
 
             display: flex;
             justify-content: center;
-            align-items: center;
 
-            color: #fff;
-            background: #fff;
+            color: #FFFFFF;
+            background: #22262d;
         }
 
         /* cloud effect credit: https://codepen.io/gestok/pen/LYgmPmj */
@@ -36,12 +39,12 @@
             position: relative;
             display: flex;
             align-items: center;
-            height: 540px;
         }
 
         .animation {
             height: 100vh;
             width: 100vw;
+
             position: absolute;
             left: 0;
             top: 0;
@@ -52,9 +55,10 @@
             position: absolute;
             left: 0;
             top: 0;
+
             width: 100%;
             height: 100%;
-            background: linear-gradient(0deg, #fff, #0000, #fff);
+            background: linear-gradient(0deg, #2c2e34, #0000, #838394);
             z-index: 1;
         }
 
@@ -65,7 +69,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: #03a9f445;
+            background: var(--primary-color);
         }
 
         .animation .cloud {
@@ -210,7 +214,7 @@
         }
 
         .opt1 {
-            background: linear-gradient(45deg, #fff 50%, #03a9f445 50%);
+            background: linear-gradient(45deg, #fff 50%, var(--primary-color) 50%);
         }
 
         .opt2 {
@@ -230,7 +234,7 @@
         }
 
         .white::after {
-            background: #03a9f445;
+            background: var(--primary-color);
         }
 
         .black::before {
@@ -256,6 +260,8 @@
         .cyan::after {
             background: #034070a0;
         }
+
+      
     </style>
 </head>
 
@@ -267,20 +273,12 @@
             <div class="cloud cloud3"></div>
         </div>
         <div class="container">
-            <h2>Fly to the Skies!</h2>
+            <h2>Notifloud!</h2>
             <div class="divider"></div>
             <p>Great things happen to those who don't stop believing, trying, learning, and being grateful.</p>
-            <button class="btn">Get Started!</button>
         </div>
     </div>
-
-    <div class="options">
-        <button class="opt opt1"></button>
-        <button class="opt opt2"></button>
-        <button class="opt opt3"></button>
-        <button class="opt opt4"></button>
-    </div>
-
+    
     <script src="../notifloud.js"></script>
 </body>
 
