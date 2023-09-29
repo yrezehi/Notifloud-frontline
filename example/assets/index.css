@@ -2,6 +2,10 @@
     --primary-color: #1a0c3d45;
 }
 
+* {
+    font-family: sans-serif;
+}
+
 body,
 html {
     height: 100vh;
@@ -17,4 +21,48 @@ html {
 
     color: #FFFFFF;
     background: #22262d;
+}
+
+.main-container {
+    height: 100vh;
+    width: 100vw;
+
+    position: absolute;
+    display: flex;
+    align-items: center;
+
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container h2 {
+    font-size: 40px;
+    text-shadow: 0 1px 2px #15151550;
+    margin: 0 0 12px;
+}
+
+.main-container p {
+    max-width: 420px;
+    margin: 6px auto 24px;
+    text-shadow: 0 1px 2px #15151550;
+}
+
+.main-container button {
+    text-shadow: 0 1px 2px #15151550;
+    background: transparent;
+    border: solid 1px #fff;
+    padding: 10px 21px;
+    color: inherit;
+    font-weight: 700;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px -4px #15151550;
+    border-radius: 4px;
+}
+
+.main-container button:hover {
+    background: #fff2;
 }
