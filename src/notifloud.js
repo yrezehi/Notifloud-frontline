@@ -27,6 +27,15 @@ var Notifloud = function () {
         notificationElement.querySelector(".close").onclick = onClose;
 
         notificationsContainer.appendChild(notificationElement);
+
+        setupStyling(notificationElement);
+    }
+
+    function setupStyling(element){
+        element.style.opacity = "1";
+        element.style.maxHeight = `${element.scrollHeight}px`;
+        
+        return element;
     }
 
     function onClose(event) {

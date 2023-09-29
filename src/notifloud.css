@@ -29,11 +29,8 @@
 
 .notifications .notification {
   display: flex;
-  transform: scale(var(--scale));
   transform-origin: center;
-
   transition: opacity 0.2s linear, max-height 3s linear, transform var(--duration) ease-out;
-
   pointer-events: auto;
 }
 
@@ -43,12 +40,10 @@
 }
 
 .notifications .notification.enter-active {
-  transform: translateY(var(--y)) scale(var(--scale));
   margin-bottom: 0;
 }
 
 .notifications .notification.exit-active {
-  transform: scale(calc(var(--scale) - 0.1));
   margin-bottom: calc((var(--height) + var(--gap)) * -1);
 }
 
@@ -57,7 +52,7 @@
 }
 
 .notifications .notification-inner {
-  background-color: var(--bg);
+  background-color: hsl(0 0% 100% / 40%);
   -webkit-backdrop-filter: blur(0.5rem);
   backdrop-filter: blur(0.5rem);
   padding: 0 1rem;
@@ -66,7 +61,6 @@
   height: var(--height);
   margin-bottom: var(--gap);
   opacity: var(--opacity);
-  transition: all var(--duration) ease-in-out;
   display: flex;
   align-items: center;
 }
