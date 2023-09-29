@@ -21,8 +21,14 @@ var Notifloud = function () {
         }
     };
 
+    function initialize() {
+        document.body.appendChild(createNotificationElement(`
+            <div class="notifications"></div>
+        `));
+    }
+
     function create(title, type) {
-        
+        var notificationElement = createNotificationElement(type);
     }
 
     function createNotificationElement(type){
@@ -31,8 +37,8 @@ var Notifloud = function () {
                 <div class="notification-inner">
                     <div class="icon ${type}">${icons[type]}</div>
                     <div class="content">
-                        <h2>content</h2>
-                        <p>1</p>
+                        <h2>title</h2>
+                        <p>conent</p>
                     </div>
                     <button class="close">${icons["close"]}</button>
                 </div>
@@ -48,11 +54,13 @@ var Notifloud = function () {
 
     return function () {
         return Object.freeze({
+            initialize: initialize,
+
             success: function (title) { create(title, "success") },
             error: function (title) { create(title, "error") },
             info: function (title) { create(title, "info") },
             warning: function (title) { create(title, "warning") },
-            loading: function (title) { create(title, "loading") }
+            loading: function (title) { create(title, "loading") },
         });
     }();
 }();
