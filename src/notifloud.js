@@ -22,8 +22,23 @@ var Notifloud = function () {
     };
 
     function create(title, type) {
-    
-     }
+        
+    }
+
+    function createNotificationElement(type){
+        return createElement(`
+            <div class="notification">
+                <div class="notification-inner">
+                    <div class="icon ${type}">${icons[type]}</div>
+                    <div class="content">
+                        <h2>content</h2>
+                        <p>1</p>
+                    </div>
+                    <button class="close">${icons["close"]}</button>
+                </div>
+            </div>
+        `);
+    }
 
     function createElement(serialized) {
         var temporaryElement = document.createElement("div");
