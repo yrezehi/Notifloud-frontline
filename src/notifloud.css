@@ -30,7 +30,7 @@
 .notifications .notification {
   display: flex;
   transform-origin: center;
-  transition: opacity 0.2s linear, max-height 3s linear, transform var(--duration) ease-out;
+  transition: opacity 0.2s linear, max-height 3s linear, transform 0.5s ease-out;
   pointer-events: auto;
 }
 
@@ -60,7 +60,6 @@
   width: var(--width);
   height: var(--height);
   margin-bottom: var(--gap);
-  opacity: var(--opacity);
   display: flex;
   align-items: center;
 }
@@ -122,7 +121,7 @@
   animation: rotate 1s linear infinite;
 }
 .notifications .notification-inner .icon.loading {
-  background-color: #280045;
+  background-color: #c90294;
 }
 
 @keyframes rotate {
