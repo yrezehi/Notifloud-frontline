@@ -24,7 +24,19 @@ var Notifloud = function () {
     function create(title, content, type) {
         var notificationElement = createNotificationElement(title, content, type);
 
+        notificationElement.querySelector(".close").onclick = onClose;
+
         notificationsContainer.appendChild(notificationElement);
+    }
+
+    function onClose(event) {
+        var targetElement = event.target.closest(".notification");
+        targetElement.style.opacity = "0";
+
+        setTimeout(function () {
+            targetElement.style.maxHeight = "0";
+            targetElement.remove();
+        }, 1000);
     }
 
     function createNotificationElement(title, content, type){
