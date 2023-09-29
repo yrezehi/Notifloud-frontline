@@ -27,7 +27,13 @@
         </div>
     </div>
 
-    <script src="../notifloud.js"></script>
+    <script src="../src/notifloud.js"></script>
+    <script>
+        Notifloud.initialize();
+        document.querySelector("[data-action=\"try-notification\"]").addEventListener("click", function (event){
+            Notifloud.success("Hello!");
+        });
+    </script>
 </body>
 
 </html>

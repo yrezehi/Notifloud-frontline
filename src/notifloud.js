@@ -1,5 +1,7 @@
 var Notifloud = function () {
 
+    var notificationsContainer;
+
     var icons = {
         'success': {
             'svg': '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"></path></svg>'
@@ -22,22 +24,26 @@ var Notifloud = function () {
     };
 
     function initialize() {
-        document.body.appendChild(createNotificationElement(`
+        notificationsContainer = createNotificationElement(`
             <div class="notifications"></div>
-        `));
+        `);
+
+        document.body.appendChild(notificationsContainer);
     }
 
     function create(title, type) {
-        var notificationElement = createNotificationElement(type);
+        var notificationElement = createNotificationElement(title, type);
+
+        notificationsContainer.appendChild(notificationElement);
     }
 
-    function createNotificationElement(type){
+    function createNotificationElement(type, title){
         return createElement(`
             <div class="notification">
                 <div class="notification-inner">
                     <div class="icon ${type}">${icons[type]}</div>
                     <div class="content">
-                        <h2>title</h2>
+                        <h2>${title}</h2>
                         <p>conent</p>
                     </div>
                     <button class="close">${icons["close"]}</button>
@@ -48,7 +54,7 @@ var Notifloud = function () {
 
     function createElement(serialized) {
         var temporaryElement = document.createElement("div");
-        temporaryElement.innerHTML += serlizedElement;
+        temporaryElement.innerHTML += serialized;
         return temporaryElement.firstElementChild;
     }
 
