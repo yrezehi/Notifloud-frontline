@@ -1,0 +1,20 @@
+:root {
+    --primary-color: #1a0c3d45;
+}
+
+body,
+html {
+    height: 100vh;
+    width: 100vw;
+
+    padding: 0;
+    margin: 0;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+
+    color: #FFFFFF;
+    background: #22262d;
+}

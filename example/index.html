@@ -6,267 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notifloud | Example</title>
 
-    <link rel="stylesheet" href="../notifloud.css">
+    <link rel="stylesheet" href="./assets/index.css">
+    <link rel="stylesheet" href="./assets/cloud.css">
 
-    <style>
-        :root {
-            --primary-color: #1a0c3d45;
-        }
-
-        body,
-        html {
-            height: 100vh;
-            width: 100vw;
-
-            padding: 0;
-            margin: 0;
-
-            overflow: hidden;
-
-            display: flex;
-            justify-content: center;
-
-            color: #FFFFFF;
-            background: #22262d;
-        }
-
-        /* cloud effect credit: https://codepen.io/gestok/pen/LYgmPmj */
-
-        .clouds {
-            height: 100vh;
-            width: 100vw;
-
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .animation {
-            height: 100vh;
-            width: 100vw;
-
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .animation::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(0deg, #2c2e34, #0000, #838394);
-            z-index: 1;
-        }
-
-        .animation::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-color);
-        }
-
-        .animation .cloud {
-            background-repeat: repeat-X;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-        }
-
-        .animation .cloud1 {
-            height: 100vh;
-            width: 100vw;
-
-            background-image: url('https://raw.githubusercontent.com/gestok/clouds/main/clouds/clouds_1.png');
-            animation: move1 20s infinite linear;
-        }
-
-        .animation .cloud2 {
-            height: 100vh;
-            width: 100vw;
-
-            background-image: url('https://raw.githubusercontent.com/gestok/clouds/main/clouds/clouds_2.png');
-            animation: move1 15s infinite linear;
-        }
-
-        .animation .cloud3 {
-            height: 100vh;
-            width: 100vw;
-
-            background-image: url('https://raw.githubusercontent.com/gestok/clouds/main/clouds/clouds_3.png');
-            animation: move1 17s infinite linear;
-        }
-
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            padding: 0 20px;
-            box-sizing: border-box;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .clouds {
-            text-align: center;
-        }
-
-        .clouds h2 {
-            font-size: 40px;
-            text-shadow: 0 1px 2px #15151550;
-            margin: 0 0 12px;
-        }
-
-        .clouds p {
-            max-width: 400px;
-            margin: 6px auto 24px;
-            text-shadow: 0 1px 2px #15151550;
-        }
-
-        .clouds .btn {
-            text-shadow: 0 1px 2px #15151550;
-            background: transparent;
-            border: solid 1px #fff;
-            padding: 10px 21px;
-            color: inherit;
-            font-weight: 700;
-            font-size: 17px;
-            cursor: pointer;
-            box-shadow: 0 8px 16px -4px #15151550;
-        }
-
-        .clouds .btn:hover {
-            background: #fff2;
-        }
-
-        .divider {
-            position: relative;
-            height: 28px;
-        }
-
-        .divider::before,
-        .divider::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 50%;
-        }
-
-        .divider::before {
-            width: 100px;
-            height: 1px;
-            background: linear-gradient(90deg, #fff 35%, transparent 35%, transparent 65%, #fff 65%);
-            transform: translate(-50%, -50%);
-        }
-
-        .divider::after {
-            width: 10px;
-            height: 10px;
-            background: #fff;
-            transform: translate(-50%, -50%) rotate(45deg);
-            box-shadow: 0 1px 2px #15151540;
-        }
-
-        @keyframes move1 {
-            100% {
-                background-position: -1000px 0;
-            }
-        }
-
-        @keyframes move2 {
-            100% {
-                background-position: -1000px 0;
-            }
-        }
-
-        @keyframes move3 {
-            100% {
-                background-position: -1579px 0;
-            }
-        }
-
-        /* Options */
-        .options {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-flow: row wrap;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .options .opt {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            box-shadow: 4px 4px 8px 0px #0005;
-        }
-
-        .opt1 {
-            background: linear-gradient(45deg, #fff 50%, var(--primary-color) 50%);
-        }
-
-        .opt2 {
-            background: linear-gradient(45deg, #151515 50%, #f96 50%);
-        }
-
-        .opt3 {
-            background: linear-gradient(45deg, #353535 50%, #009688 50%);
-        }
-
-        .opt4 {
-            background: linear-gradient(45deg, #b2ebf2 50%, #034070 50%);
-        }
-
-        .white::before {
-            background: linear-gradient(0deg, #fff, #fff0, #fff)
-        }
-
-        .white::after {
-            background: var(--primary-color);
-        }
-
-        .black::before {
-            background: linear-gradient(0deg, #151515, #15151500, #151515)
-        }
-
-        .black::after {
-            background: #ff996630;
-        }
-
-        .lightblack::before {
-            background: linear-gradient(0deg, #353535, #35353500, #353535)
-        }
-
-        .lightblack::after {
-            background: #00968875;
-        }
-
-        .cyan::before {
-            background: linear-gradient(0deg, #b2ebf2 0%, #b2ebf200 38%, #b2ebf200 58%, #b2ebf2 100%)
-        }
-
-        .cyan::after {
-            background: #034070a0;
-        }
-
-      
-    </style>
+    <link rel="stylesheet" href="../src/notifloud.css">
 </head>
 
 <body>
+
     <div class="clouds">
+        <div class="notifications" style="--duration:500ms;"></div>
+
         <div class="animation">
             <div class="cloud cloud1"></div>
             <div class="cloud cloud2"></div>
@@ -275,9 +25,11 @@
         <div class="container">
             <h2>Notifloud!</h2>
             <div class="divider"></div>
-            <p>Great things happen to those who don't stop believing, trying, learning, and being grateful.</p>
+            <p>Notication library on the budget, to suite personal needs.</p>
+            <button class="btn">Get Started!</button>
         </div>
     </div>
+
     
     <script src="../notifloud.js"></script>
 </body>
