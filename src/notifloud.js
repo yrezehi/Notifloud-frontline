@@ -1,6 +1,6 @@
 var Notifloud = function () {
 
-    const icons = {
+    var icons = {
         'success': {
             'svg': '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"></path></svg>'
         },
@@ -16,14 +16,28 @@ var Notifloud = function () {
         'loading': {
             'svg': '<svg viewBox="0 0 1024 1024" focusable="false" data-icon="loading" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"></path></svg>'
         },
-        '': {
+        'close': {
             'svg': '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>'
         }
     };
+
+    function create(title, type) {
     
+     }
+
+    function createElement(serialized) {
+        var temporaryElement = document.createElement("div");
+        temporaryElement.innerHTML += serlizedElement;
+        return temporaryElement.firstElementChild;
+    }
+
     return function () {
         return Object.freeze({
-            
+            success: function (title) { create(title, "success") },
+            error: function (title) { create(title, "error") },
+            info: function (title) { create(title, "info") },
+            warning: function (title) { create(title, "warning") },
+            loading: function (title) { create(title, "loading") }
         });
     }();
 }();
