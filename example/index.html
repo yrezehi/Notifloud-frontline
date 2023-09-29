@@ -30,8 +30,17 @@
     <script src="../src/notifloud.js"></script>
     <script>
         Notifloud.initialize();
+
+        var functions = [
+            function () { Notifloud.success("Success !") }, 
+            function () { Notifloud.error("Error !") }, 
+            function () { Notifloud.info("Information !") }, 
+            function () { Notifloud.warning("Warning !") }, 
+            function () { Notifloud.loading("Loading !") }, 
+        ]
+
         document.querySelector("[data-action=\"try-notification\"]").addEventListener("click", function (event){
-            Notifloud.success("Hello!");
+            functions[Math.floor(Math.random() * functions.length)]();
         });
     </script>
 </body>
