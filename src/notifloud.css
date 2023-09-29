@@ -1,0 +1,151 @@
+.notifications {
+  --width: 20rem;
+  --height: 4.5rem;
+  --gap: 1rem;
+  position: absolute;
+  top: 1.2rem;
+  right: 0.4rem;
+  pointer-events: none;
+  margin-bottom: 0.4rem;
+  z-index: 999;
+}
+
+.notifications:hover .notification {
+  transform: translateY(0) scale(1);
+}
+
+.notifications:hover .notification .notification-inner {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.notifications:hover .notification.exit-active {
+  transform: translateY(0) scale(0.5);
+}
+
+.notifications:hover .notification.exit-active .notification-inner {
+  background-color: white !important;
+}
+
+.notifications .notification {
+  display: flex;
+  transform: scale(var(--scale));
+  transform-origin: center;
+
+  transition: opacity 0.2s linear, max-height 3s linear, transform var(--duration) ease-out;
+
+  pointer-events: auto;
+}
+
+.notifications .notification.enter {
+  transform: translateY(100%) scale(1);
+  margin-bottom: calc((var(--height) + var(--gap)) * -1);
+}
+
+.notifications .notification.enter-active {
+  transform: translateY(var(--y)) scale(var(--scale));
+  margin-bottom: 0;
+}
+
+.notifications .notification.exit-active {
+  transform: scale(calc(var(--scale) - 0.1));
+  margin-bottom: calc((var(--height) + var(--gap)) * -1);
+}
+
+.notifications .notification.exit-active .notification-inner {
+  opacity: 0;
+}
+
+.notifications .notification-inner {
+  background-color: var(--bg);
+  -webkit-backdrop-filter: blur(0.5rem);
+  backdrop-filter: blur(0.5rem);
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  width: var(--width);
+  height: var(--height);
+  margin-bottom: var(--gap);
+  opacity: var(--opacity);
+  transition: all var(--duration) ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.notifications .notification-inner h2 {
+  margin-top: 1.1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.notifications .notification-inner p {
+  margin-top: 0rem;
+  font-size: 0.8rem;
+}
+
+.notifications .notification-inner .close {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  color: #616161;
+
+}
+
+.notifications .notification-inner .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.3rem;
+  margin-right: 1rem;
+  font-size: 1rem;
+  color: white;
+}
+
+.notifications .notification-inner .icon.error {
+  background-color: #f87171;
+}
+
+.notifications .notification-inner .icon.success {
+  background-color: #10b981;
+}
+
+.notifications .notification-inner .icon.info {
+  background-color: #60a5fa;
+}
+
+.notifications .notification-inner .icon.warning {
+  background-color: #f59e0b;
+}
+
+.notifications .notification-inner .icon.loading svg {
+  animation: rotate 1s linear infinite;
+}
+.notifications .notification-inner .icon.loading {
+  background-color: #280045;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+.notification:not(:first-child) {
+  margin-top: -3rem;
+}
+
+.notification:not(:last-child):hover,
+.notification:not(:last-child):focus-within {
+  transform: translateY(-1rem);
+}
+
+.notification:not(:last-child):hover~.notification,
+.notification:not(:last-child):focus-within~.notification {
+  transform: translateY(1.2rem);
+}

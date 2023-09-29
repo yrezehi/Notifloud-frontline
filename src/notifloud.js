@@ -14,7 +14,7 @@ var Notifloud = function () {
     };
 
     function initialize() {
-        notificationsContainer = createNotificationElement(`
+        notificationsContainer = createElement(`
             <div class="notifications"></div>
         `);
 
