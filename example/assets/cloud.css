@@ -77,7 +77,7 @@
 
 .divider::before {
     width: 100px;
-    height: 1px;
+    height: 2px;
     background: linear-gradient(90deg, #fff 35%, transparent 35%, transparent 65%, #fff 65%);
     transform: translate(-50%, -50%);
 }

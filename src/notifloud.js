@@ -2,7 +2,9 @@ var Notifloud = function () {
     var DEFAULT_TITLE = "You forgot to add a title!";
     var DEFAULT_CONTENT = "You forgot to add content!"
 
-    var notificationsContainer; 
+    var notificationsContainer;
+     
+    var notifications = [];
 
     var icons = {
         'success': '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"></path></svg>',
@@ -15,29 +17,34 @@ var Notifloud = function () {
 
     function create(title, content, type) {
         var notificationElement = createNotificationElement(title, content, type);
-
-        notificationElement.querySelector(".close").onclick = onClose;
-
+        notificationElement.querySelector(".close").onclick = function(event) { 
+            close(event.target.closest(".notification"));
+        };
+        notifications.push(notificationElement);
         notificationsContainer.appendChild(notificationElement);
-
         setupStyling(notificationElement);
     }
 
     function setupStyling(element){
         element.style.opacity = "1";
         element.style.maxHeight = `${element.scrollHeight}px`;
-        
         return element;
     }
 
-    function onClose(event) {
-        var targetElement = event.target.closest(".notification");
-        targetElement.style.opacity = "0";
+    function close(element) {
+        element.style.opacity = "0";
+        setTimeout((function (notification) {
+            notification.style.maxHeight = "0";
+            notifications = notifications.splice(notifications.indexOf(notification), 1);
+            notification.remove();
+        })(element), 1000);
+    }
 
-        setTimeout(function () {
-            targetElement.style.maxHeight = "0";
-            targetElement.remove();
-        }, 1000);
+    function closeAll(){
+        for(var notification of notifications){
+            close(notification);
+        }
+        notifications = [];
     }
 
     function createNotificationElement(title, content, type){
@@ -66,21 +73,21 @@ var Notifloud = function () {
             notificationsContainer = createElement(`
                 <div class="notifications"></div>
             `);
-
             document.body.appendChild(notificationsContainer);
         });
     }
 
     return function () {
         initialize();
-
         return Object.freeze({
-
             success: function (title, content) { create(title, content, "success") },
             error: function (title, content) { create(title, content, "error") },
             info: function (title, content) { create(title, content, "info") },
             warning: function (title, content) { create(title, content, "warning") },
             loading: function (title, content) { create(title, content, "loading") },
+
+            closeAll: closeAll,
+            notifications: notifications,
         });
     }();
 }();
