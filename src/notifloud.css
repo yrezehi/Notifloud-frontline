@@ -30,7 +30,7 @@
 .notifications .notification {
   display: flex;
   transform-origin: center;
-  transition: opacity 0.2s linear, max-height 3s linear, transform 0.5s ease-out;
+  transition: opacity 0.2s linear, max-height 1s linear, transform 0.5s ease-out;
   pointer-events: auto;
 }
 

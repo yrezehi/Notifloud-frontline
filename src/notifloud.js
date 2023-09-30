@@ -17,9 +17,11 @@ var Notifloud = function () {
 
     function create(title, content, type) {
         var notificationElement = createNotificationElement(title, content, type);
-        notificationElement.querySelector(".close").onclick = function(event) { 
+        notificationElement.querySelector(".close").addEventListener("click", function(event) { 
             close(event.target.closest(".notification"));
-        };
+        });
+        notificationElement.style.maxHeight = `${notificationElement.scrollHeight}px`;
+
         notifications.push(notificationElement);
         notificationsContainer.appendChild(notificationElement);
         setupStyling(notificationElement);
@@ -28,16 +30,15 @@ var Notifloud = function () {
     function setupStyling(element){
         element.style.opacity = "1";
         element.style.maxHeight = `${element.scrollHeight}px`;
-        return element;
     }
 
     function close(element) {
         element.style.opacity = "0";
-        setTimeout((function (notification) {
-            notification.style.maxHeight = "0";
-            notifications = notifications.splice(notifications.indexOf(notification), 1);
-            notification.remove();
-        })(element), 1000);
+        setTimeout(function () {
+            element.style.maxHeight = "0";
+            notifications.splice(notifications.indexOf(element), 1);
+            element.remove();
+        }, 1000);
     }
 
     function closeAll(){
