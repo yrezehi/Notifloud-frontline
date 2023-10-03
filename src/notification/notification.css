@@ -9,9 +9,53 @@
     backdrop-filter: blur(0.5rem);
     padding: 0.3rem 0.30rem;
 
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
 
     display: flex;
     align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+    height: 32px;
+    width: 32px;
+}
+
+.notification-bell svg {
+    height: 24px;
+    width: 24px;
+}
+
+.notification-bell svg:hover {
+    transform-origin: 50% 50%;
+    animation-name: bellring;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bellring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(10deg);
+    }
+
+    20% {
+        transform: rotate(-10deg);
+    }
+
+    30% {
+        transform: rotate(10deg);
+    }
+
+    40% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
 }
