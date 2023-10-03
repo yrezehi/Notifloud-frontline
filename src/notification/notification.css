@@ -21,11 +21,6 @@
     width: 32px;
 }
 
-.notification-bell:not(.active) {
-    max-width: 0 !important;
-    right: -0.5rem;
-}
-
 .notification-bell svg {
     height: 24px;
     width: 24px;
@@ -60,12 +55,7 @@
     border-top-left-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
 
-    transition: max-width 1s cubic-bezier(.18,.89,.32,1.28);
-}
-
-.notifications-container:not(.active) {
-    max-width: 0 !important;
-    right: -0.8rem;
+    transition: right 1s ease-in-out;
 }
 
 .notification {

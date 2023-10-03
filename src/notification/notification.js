@@ -17,12 +17,14 @@ var NotifloudNotification = function () {
     }
 
     function off(){
-        notificationContainerElement.classList.remove(ACTIVE_CLASS);
+        notificationContainerElement.style.right = `-${notificationBellElement.parentNode.offsetWidth - notificationBellElement.offsetWidth}px`;
+
         notificationBellElement.classList.add(ACTIVE_CLASS);
     }
 
     function on(){
-        notificationContainerElement.classList.add(ACTIVE_CLASS);
+        notificationContainerElement.style.right = `0`;
+
         notificationBellElement.classList.remove(ACTIVE_CLASS);
     }
 
