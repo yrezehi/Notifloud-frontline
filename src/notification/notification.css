@@ -24,6 +24,7 @@
 .notification-bell svg {
     height: 24px;
     width: 24px;
+    fill: #606060;
 }
 
 .notification-bell svg:hover {
@@ -32,6 +33,10 @@
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+}
+
+.notification-bell svg:hover path {
+    fill: rgb(52, 58, 68);
 }
 
 .notifications-container {
@@ -52,7 +57,7 @@
 }
 
 .notification {
-    padding: 0.6rem 1.1rem;
+    padding: 0.6rem 1.4rem;
     border-radius: 0.2rem;
     
     width: var(--width);
@@ -93,6 +98,17 @@
 
 .notification-content {
     color: #444444;
+}
+
+.notification-title-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.notification-title-container .notification-date {
+    font-size: small;
+    color: #22222280;
 }
 
 .notification-content-bold {
