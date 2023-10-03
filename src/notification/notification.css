@@ -1,0 +1,17 @@
+.notification-bell {
+    position: absolute;
+    right: 0;
+
+    cursor: pointer;
+
+    background-color: hsl(0 0% 100% / 40%);
+    -webkit-backdrop-filter: blur(0.5rem);
+    backdrop-filter: blur(0.5rem);
+    padding: 0.3rem 0.30rem;
+
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+
+    display: flex;
+    align-items: center;
+}
