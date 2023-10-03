@@ -27,10 +27,6 @@
 }
 
 .notification-bell svg:hover {
-    color: #5f5f5f;
-}
-
-.notification-bell svg:hover {
     transform-origin: 50% 50%;
     animation-name: bellring;
     animation-duration: 1s;
@@ -85,7 +81,7 @@
 }
 
 .notification:hover::after, .notification.active {
-    background-color: #152b72;
+    background-color: #22262d;
     -webkit-transition: background-color 0.2s ease-in-out;
     transition: background-color 0.2s ease-in-out;
 }
