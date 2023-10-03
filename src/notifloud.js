@@ -34,8 +34,10 @@ var Notifloud = function () {
 
     function close(element) {
         element.style.opacity = "0";
+        element.style.display = "none";
+
         setTimeout(function () {
-            element.style.maxHeight = "0";
+            console.log(element);
             notifications.splice(notifications.indexOf(element), 1);
             element.remove();
         }, 1000);

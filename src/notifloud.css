@@ -1,7 +1,6 @@
 .notifications {
   --width: 20rem;
   --height: 4.5rem;
-  --gap: 1rem;
   position: absolute;
   top: 1.2rem;
   right: 0.4rem;
@@ -32,11 +31,12 @@
   transform-origin: center;
   transition: opacity 0.2s linear, max-height 1s linear, transform 0.5s ease-out;
   pointer-events: auto;
+  margin-bottom: 0.25rem;
 }
 
 .notifications .notification.enter {
   transform: translateY(100%) scale(1);
-  margin-bottom: calc((var(--height) + var(--gap)) * -1);
+  margin-bottom: var(--height);
 }
 
 .notifications .notification.enter-active {
@@ -44,7 +44,7 @@
 }
 
 .notifications .notification.exit-active {
-  margin-bottom: calc((var(--height) + var(--gap)) * -1);
+  margin-bottom: calc(var(--height) * -1);
 }
 
 .notifications .notification.exit-active .notification-inner {
@@ -59,7 +59,7 @@
   border-radius: 0.5rem;
   width: var(--width);
   height: var(--height);
-  margin-bottom: var(--gap);
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
 }
