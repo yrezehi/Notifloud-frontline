@@ -32,6 +32,7 @@
   transition: opacity 0.2s linear, max-height 1s linear, transform 0.5s ease-out;
   pointer-events: auto;
   margin-bottom: 0.25rem;
+  color: rgba(0,0,0,0.75);
 }
 
 .toasts .toast.enter {
