@@ -17,23 +17,22 @@ var NotifloudNotification = function () {
     }
 
     function off(){
-        notificationContainerElement.style.right = `-${notificationBellElement.parentNode.offsetWidth - notificationBellElement.offsetWidth}px`;
+        notificationContainerElement.style.right = `-${notificationContainerElement.parentNode.offsetWidth - notificationContainerElement.offsetWidth}px`;
 
-        notificationBellElement.classList.add(ACTIVE_CLASS);
+        notificationBellElement.style.right = "0";
     }
 
     function on(){
-        notificationContainerElement.style.right = `0`;
+        notificationContainerElement.style.right = "0";
 
-        notificationBellElement.classList.remove(ACTIVE_CLASS);
+        notificationBellElement.style.right = `-${notificationBellElement.parentNode.offsetWidth - notificationBellElement.offsetWidth}px`;
     }
 
     (function setup(){
         notificationContainerElement = document.querySelector(`.${NOTIFICATION_CONTAINER_CLASS}`);
         notificationBellElement = document.querySelector(`.${NOTIFICATION_BELL_CLASS}`);
 
-        notificationContainerElement.style.maxWidth = `${notificationContainerElement.parentNode.offsetWidth - notificationContainerElement.offsetWidth}px`;
-        notificationBellElement.style.maxWidth = `${notificationBellElement.parentNode.offsetWidth - notificationBellElement.offsetWidth}px`;
+        notificationContainerElement.style.right = `-${notificationContainerElement.parentNode.offsetWidth - notificationContainerElement.offsetWidth}px`;
 
         notificationBellElement.addEventListener("mouseover", on);
         notificationContainerElement.addEventListener("mouseleave", off);

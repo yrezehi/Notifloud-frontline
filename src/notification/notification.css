@@ -19,6 +19,8 @@
     z-index: 9999;
     height: 32px;
     width: 32px;
+
+    transition: right 1s ease-in-out;
 }
 
 .notification-bell svg {
