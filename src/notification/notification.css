@@ -123,6 +123,16 @@
     color: #1d4ed8;
 }
 
+.notification-count {
+    position: absolute;
+    font-size: x-small;
+    border-radius: 12px;
+    background-color: #1d4ed8;
+    padding: 1px 4px;
+    top: 4px;
+    right: 6px;
+}
+
 @keyframes bellring {
     0% {
         transform: rotate(0deg);
