@@ -3,10 +3,12 @@
   --height: 4.5rem;
   position: absolute;
   top: 1.2rem;
-  right: 0.4rem;
+  right: 0.6rem;
   pointer-events: none;
   margin-bottom: 0.4rem;
   z-index: 999;
+  display: inline-flex;
+  flex-direction: column;
 }
 
 .toasts:hover .toast {
@@ -27,10 +29,14 @@
 }
 
 .toasts .toast {
-  transition: opacity 0.2s linear, max-height 1s linear, transform 0.5s ease-out, right 0.5s linear;
+  transition: opacity 0.2s linear, max-height 1s linear, transform 0.5s ease-out, right 200ms linear;
   pointer-events: auto;
   margin-bottom: 0.25rem;
   color: rgba(0,0,0,0.75);
+
+  position:relative;
+  margin-left:auto; 
+  right:0;
 }
 
 .toasts .toast.enter {
@@ -85,7 +91,6 @@
   cursor: pointer;
   display: flex;
   color: #616161;
-
 }
 
 .toasts .toast-inner .icon {
