@@ -33,13 +33,13 @@ var NotifloudToast = function () {
     }
 
     function close(element) {
-        element.style.opacity = "0";
-        element.style.display = "none";
+        //element.style.opacity = "0";
+        //element.style.display = "none";
+        element.style.right = `-${element.parentNode.offsetWidth - element.offsetWidth}px`;
 
         setTimeout(function () {
-            console.log(element);
             toasts.splice(toasts.indexOf(element), 1);
-            element.remove();
+            //element.remove();
         }, 1000);
     }
 
