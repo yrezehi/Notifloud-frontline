@@ -2,9 +2,9 @@ var NotifloudToast = function () {
     var DEFAULT_TITLE = "You forgot to add a title!";
     var DEFAULT_CONTENT = "You forgot to add content!"
 
-    var notificationsContainer;
+    var toastsContainer;
      
-    var notifications = [];
+    var toasts = [];
 
     var icons = {
         'success': '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"></path></svg>',
@@ -16,15 +16,15 @@ var NotifloudToast = function () {
     };
 
     function create(title, content, type) {
-        var notificationElement = createNotificationElement(title, content, type);
-        notificationElement.querySelector(".close").addEventListener("click", function(event) { 
-            close(event.target.closest(".notification"));
+        var toastElement = createToastElement(title, content, type);
+        toastElement.querySelector(".close").addEventListener("click", function(event) { 
+            close(event.target.closest(".toast"));
         });
-        notificationElement.style.maxHeight = `${notificationElement.scrollHeight}px`;
+        toastElement.style.maxHeight = `${toastElement.scrollHeight}px`;
 
-        notifications.push(notificationElement);
-        notificationsContainer.appendChild(notificationElement);
-        setupStyling(notificationElement);
+        toasts.push(toastElement);
+        toastsContainer.appendChild(toastElement);
+        setupStyling(toastElement);
     }
 
     function setupStyling(element){
@@ -38,22 +38,22 @@ var NotifloudToast = function () {
 
         setTimeout(function () {
             console.log(element);
-            notifications.splice(notifications.indexOf(element), 1);
+            toasts.splice(toasts.indexOf(element), 1);
             element.remove();
         }, 1000);
     }
 
     function closeAll(){
-        for(var notification of notifications){
-            close(notification);
+        for(var toast of toasts){
+            close(toast);
         }
-        notifications = [];
+        toasts = [];
     }
 
-    function createNotificationElement(title, content, type){
+    function createToastElement(title, content, type){
         return createElement(`
-            <div class="notification">
-                <div class="notification-inner">
+            <div class="toast">
+                <div class="toast-inner">
                     <div class="icon ${type}">${icons[type]}</div>
                     <div class="content">
                         <h2>${title ?? DEFAULT_TITLE}</h2>
@@ -73,10 +73,10 @@ var NotifloudToast = function () {
 
     function initialize(){
         document.addEventListener("DOMContentLoaded", function() {
-            notificationsContainer = createElement(`
-                <div class="notifications"></div>
+            toastsContainer = createElement(`
+                <div class="toasts"></div>
             `);
-            document.body.appendChild(notificationsContainer);
+            document.body.appendChild(toastsContainer);
         });
     }
 
@@ -90,7 +90,7 @@ var NotifloudToast = function () {
             loading: function (title, content) { create(title, content, "loading") },
 
             closeAll: closeAll,
-            notifications: notifications,
+            toasts: toasts,
         });
     }();
 }();
