@@ -21,13 +21,17 @@
     width: 32px;
 }
 
+.notification-bell:not(.active) {
+    display: none;
+}
+
 .notification-bell svg {
     height: 24px;
     width: 24px;
     fill: #606060;
 }
 
-.notification-bell svg:hover {
+.notification-bell:hover svg {
     transform-origin: 50% 50%;
     animation-name: bellring;
     animation-duration: 1s;
@@ -56,14 +60,18 @@
     border-bottom-left-radius: 0.3rem;
 }
 
+.notifications-container:not(.active) {
+    display: none;
+}
+
 .notification {
-    padding: 0.6rem 1.4rem;
+    padding: 0.6rem 1.6rem;
     border-radius: 0.2rem;
-    
+
     width: var(--width);
     height: var(--height);
     cursor: pointer;
-    
+
     border: solid 1px hsla(0, 0%, 100%, 0.5);
     background-color: hsla(0, 0%, 100%, 0.1);
     -webkit-backdrop-filter: blur(0.1rem);
@@ -85,7 +93,8 @@
     transition: transform 300ms ease;
 }
 
-.notification:hover::after, .notification.active {
+.notification:hover::after,
+.notification.active {
     background-color: #22262d;
     -webkit-transition: background-color 0.2s ease-in-out;
     transition: background-color 0.2s ease-in-out;
@@ -107,12 +116,12 @@
 }
 
 .notification-title-container .notification-date {
-    font-size: small;
+    font-size: x-small;
     color: #22222280;
 }
 
 .notification-content-bold {
-    white-space:pre;
+    white-space: pre;
     font-weight: bold;
     color: #1d4ed8;
 }
