@@ -29,7 +29,10 @@ var NotifloudNotification = function () {
     (function setup(){
         notificationContainerElement = document.querySelector(`.${NOTIFICATION_CONTAINER_CLASS}`);
         notificationBellElement = document.querySelector(`.${NOTIFICATION_BELL_CLASS}`);
-        
+
+        notificationContainerElement.style.maxWidth = `${notificationContainerElement.parentNode.offsetWidth - notificationContainerElement.offsetWidth}px`;
+        notificationBellElement.style.maxWidth = `${notificationBellElement.parentNode.offsetWidth - notificationBellElement.offsetWidth}px`;
+
         notificationBellElement.addEventListener("mouseover", on);
         notificationContainerElement.addEventListener("mouseleave", off);
     })();

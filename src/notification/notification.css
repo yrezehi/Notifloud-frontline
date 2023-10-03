@@ -7,7 +7,7 @@
     background-color: hsl(0 0% 100% / 40%);
     -webkit-backdrop-filter: blur(0.5rem);
     backdrop-filter: blur(0.5rem);
-    padding: 0.3rem 0.30rem;
+    padding: 0.3rem 0.3rem;
 
     border-top-left-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
@@ -22,7 +22,8 @@
 }
 
 .notification-bell:not(.active) {
-    display: none;
+    max-width: 0 !important;
+    right: -0.5rem;
 }
 
 .notification-bell svg {
@@ -58,10 +59,13 @@
 
     border-top-left-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
+
+    transition: max-width 1s cubic-bezier(.18,.89,.32,1.28);
 }
 
 .notifications-container:not(.active) {
-    display: none;
+    max-width: 0 !important;
+    right: -0.8rem;
 }
 
 .notification {
