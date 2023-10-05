@@ -26,37 +26,10 @@
             <img src="assets/logo.png" />
             <div class="divider"></div>
             <p>Notication library on the budget, to suite personal needs.</p>
-            <button data-action="try-notification">Try it out !</button>
+            <button data-action="try-toast">Try it out !</button>
         </div>
 
-        <div class="notifications-container">
-            <div class="notification">
-                <div class="notification-title-container">
-                    <span class="notification-title">
-                        Follower
-                    </span>
-                    <span class="notification-date">
-                        3 Hours ago
-                    </span>
-                </div>
-                <span class="notification-content">
-                    You've been followed by Yakuza112
-                </span>
-            </div>
-            <div class="notification">
-                <div class="notification-title-container">
-                    <span class="notification-title">
-                        Achievement
-                    </span>
-                    <span class="notification-date">
-                        3 Hours ago
-                    </span>
-                </div>
-                <span class="notification-content">
-                    You made it to the finals!
-                </span>
-            </div>
-        </div>
+        <div class="notifications-container"></div>
 
         <div class="notification-bell active">
             <div class="notification-count">
@@ -70,7 +43,7 @@
 
     <script src="../src/toast/toast.js"></script>
     <script>
-        var functions = [
+        var toastFunctions = [
             function () { NotifloudToast.success("Success !", "Write success message here") }, 
             function () { NotifloudToast.error("Error !", "write error message here") }, 
             function () { NotifloudToast.info("Information !", "Write information message here") }, 
@@ -78,13 +51,25 @@
             function () { NotifloudToast.loading("Loading !", "Write loading message here") }, 
         ]
 
-        document.querySelector("[data-action=\"try-notification\"]").addEventListener("click", function (event){
-            functions[Math.floor(Math.random() * functions.length)]();
+        document.querySelector("[data-action=\"try-toast\"]").addEventListener("click", function (event){
+            toastFunctions[Math.floor(Math.random() * toastFunctions.length)]();
         });
     </script>
 
     <script src="../src/notification/notification.js"></script>
-    <script></script>
+    <script>
+        var notifications = [
+            {"title": "Title", "description": "Description"},
+            {"title": "Title", "description": "Description"},
+            {"title": "Title", "description": "Description"},
+            {"title": "Title", "description": "Description"},
+            {"title": "Title", "description": "Description"}
+        ];
+
+        document.querySelector("[data-action=\"try-notification\"]").addEventListener("click", function (event){
+            toastFunctions[Math.floor(Math.random() * toastFunctions.length)]();
+        });
+    </script>
 </body>
 
 </html>
