@@ -26,7 +26,8 @@
             <img src="assets/logo.png" />
             <div class="divider"></div>
             <p>Notication library on the budget, to suite personal needs.</p>
-            <button data-action="try-toast">Try it out !</button>
+            <button data-action="try-toast">Try it out toasts !</button>
+            <button data-action="try-notification">Spawn notifications !</button>
         </div>
 
         <div class="notifications-container"></div>
@@ -59,15 +60,14 @@
     <script src="../src/notification/notification.js"></script>
     <script>
         var notifications = [
-            {"title": "Title", "description": "Description"},
-            {"title": "Title", "description": "Description"},
-            {"title": "Title", "description": "Description"},
-            {"title": "Title", "description": "Description"},
-            {"title": "Title", "description": "Description"}
+            {"title": "Followers", "description": "You got 7 new followers!"},
+            {"title": "Achievement", "description": "You Received Master Level"},
+            {"title": "Cloudy23", "description": "Followed you"},
+            {"title": "Password", "description": "Your password has been changed"},
         ];
 
         document.querySelector("[data-action=\"try-notification\"]").addEventListener("click", function (event){
-            toastFunctions[Math.floor(Math.random() * toastFunctions.length)]();
+            NotifloudNotification.set([notifications[Math.floor(Math.random() * notifications.length)]]);
         });
     </script>
 </body>
