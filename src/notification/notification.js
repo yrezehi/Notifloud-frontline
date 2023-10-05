@@ -8,6 +8,8 @@ var NotifloudNotification = function () {
     var notificationContainerElement;
     var notificationBellElement;
 
+    var notificationsCount = 0;
+
     function off(){
         notificationContainerElement.style.right = `-${notificationContainerElement.parentNode.offsetWidth - notificationContainerElement.offsetWidth}px`;
         notificationBellElement.style.right = "0";
@@ -45,6 +47,7 @@ var NotifloudNotification = function () {
     function createElement(serialized) {
         var temporaryElement = document.createElement("div");
         temporaryElement.innerHTML += serialized;
+        notificationContainerElement.appendChild(temporaryElement.firstElementChild);
         return temporaryElement.firstElementChild;
     }
 
