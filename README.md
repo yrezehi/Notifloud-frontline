@@ -26,3 +26,11 @@
 ```
 NotifloudToast.success("Success !", "Write success message here");
 ```
+
+### TODO
+
+- [ ] Provide configuration interface
+- [ ] Dynamic notification data
+- [ ] Cleanup code
+- [ ] Dynamic positioning of toast and notification
+- [ ] NPM package
