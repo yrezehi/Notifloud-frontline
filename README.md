@@ -10,7 +10,7 @@
 
 ## Demo 
 
-- yrezehi.github.io/Notifloud/example
+- <a href="yrezehi.github.io/Notifloud/example">Live Demo</a>
 
 ## Installation
 
@@ -23,8 +23,19 @@
 
 ### Usage
 
-```
+```javascript
 NotifloudToast.success("Success !", "Write success message here");
+```
+
+### Notification
+
+1 - Refrence `notification.css` to your page
+2 - Refrence `notification.js` to your page
+
+### Usage
+
+```javascript
+NotifloudNotification.set([{"title": "Followers", "description": "You got 7 new followers!"}]);
 ```
 
 ### TODO
