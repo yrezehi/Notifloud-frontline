@@ -59,6 +59,14 @@
 
     transition: right 500ms ease-in-out;
     z-index: 9999;
+
+    overflow-y: hidden;
+    max-height: 95%;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+.notifications-container::-webkit-scrollbar { 
+    display: none; 
 }
 
 .notification {
