@@ -133,6 +133,10 @@
     right: 6px;
 }
 
+.notification-count.zero {
+    display: none;
+}
+
 @keyframes bellring {
     0% {
         transform: rotate(0deg);

@@ -2,11 +2,11 @@ var NotifloudNotification = function () {
 
     var NOTIFICATION_CONTAINER_CLASS = "notifications-container";
     var NOTIFICATION_BELL_CLASS = "notification-bell";
-
-    var ACTIVE_CLASS = "active";
+    var NOTIFICATION_COUNT_CLASS = "notification-count";
 
     var notificationContainerElement;
     var notificationBellElement;
+    var notificationBellCountElement;
 
     var notificationsCount = 0;
 
@@ -21,9 +21,16 @@ var NotifloudNotification = function () {
     }
 
     function set(notifications){
+        notificationsCount += notification.length;
+        updateNotificationCount(notificationsCount);
+
         for(var notification of notifications){
             createNotificationElement(notification["title"], notification["description"]);
         }
+    }
+
+    function updateNotificationCount(){
+        notificationBellElement
     }
 
     function createNotificationElement(title, description){
@@ -54,6 +61,7 @@ var NotifloudNotification = function () {
     (function setup(){
         notificationContainerElement = document.querySelector(`.${NOTIFICATION_CONTAINER_CLASS}`);
         notificationBellElement = document.querySelector(`.${NOTIFICATION_BELL_CLASS}`);
+        notificationBellCountElement = notificationBellElement.querySelector(`.${NOTIFICATION_COUNT_CLASS}`);
 
         notificationContainerElement.style.right = `-${notificationContainerElement.parentNode.offsetWidth - notificationContainerElement.offsetWidth}px`;
 
