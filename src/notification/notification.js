@@ -21,7 +21,7 @@ var NotifloudNotification = function () {
     }
 
     function set(notifications){
-        notificationsCount += notification.length;
+        notificationsCount += notifications.length;
         updateNotificationCount(notificationsCount);
 
         for(var notification of notifications){
@@ -29,8 +29,13 @@ var NotifloudNotification = function () {
         }
     }
 
-    function updateNotificationCount(){
-        notificationBellElement
+    function updateNotificationCount(count){
+        if(count === 0)
+            notificationBellCountElement.classList.add("zero");
+        else {
+            notificationBellCountElement.classList.remove("zero");
+            notificationBellCountElement.innerHTML = count;
+        }
     }
 
     function createNotificationElement(title, description){
