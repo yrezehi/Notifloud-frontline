@@ -35,6 +35,7 @@ var NotifloudNotification = function () {
         if(count === 0)
             notificationBellCountElement.classList.add("zero");
         else {
+            notificationBellElement.classList.add("active");
             notificationBellCountElement.classList.remove("zero");
             notificationBellCountElement.innerHTML = count;
         }

@@ -29,7 +29,7 @@
     fill: #606060;
 }
 
-.notification-bell:hover svg {
+.notification-bell:hover svg,  .notification-bell.active svg{
     transform-origin: 50% 50%;
     animation-name: bellring;
     animation-duration: 1s;
@@ -100,10 +100,14 @@
 }
 
 .notification:hover::after,
-.notification.active {
+.notification.active  {
     background-color: #22262d;
-    -webkit-transition: background-color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.notification::after {
+    background-color: #1d4ed8;
 }
 
 .notification-title {
@@ -140,6 +144,7 @@
     padding: 1px 4px;
     top: 4px;
     right: 6px;
+    z-index: 9999;
 }
 
 .notification-count.zero {
