@@ -16,8 +16,10 @@ var NotifloudNotification = function () {
     }
 
     function on(){
-        notificationContainerElement.style.right = "0";
-        notificationBellElement.style.right = `-${notificationBellElement.parentNode.offsetWidth - notificationBellElement.offsetWidth}px`;
+        if(notificationsCount > 0){
+            notificationContainerElement.style.right = "0";
+            notificationBellElement.style.right = `-${notificationBellElement.parentNode.offsetWidth - notificationBellElement.offsetWidth}px`;
+        }
     }
 
     function set(notifications){
@@ -76,7 +78,7 @@ var NotifloudNotification = function () {
 
     return function () {
         return Object.freeze({
-            set: set  
+            set: set
         });
     }();
 }();
