@@ -58,10 +58,10 @@
     <script src="../src/notification/notification.js"></script>
     <script>
         var notifications = [
-            {"title": "Followers", "description": "You got 7 new followers!"},
-            {"title": "Achievement", "description": "You Received Master Level"},
-            {"title": "Cloudy23", "description": "Followed you"},
-            {"title": "Password", "description": "Your password has been changed"},
+            {"title": "Followers", "description": "You got 7 new followers!", "callback": () => { alert("Follower's Callback"); }},
+            {"title": "Achievement", "description": "You Received Master Level", "callback": () => { alert("Achievement's Callback"); }},
+            {"title": "Cloudy23", "description": "Followed you", "callback": () => { alert("Cloudy23's Callback"); }},
+            {"title": "Password", "description": "Your password has been changed", "callback": () => { alert("Password's Callback"); }},
         ];
 
         document.querySelector("[data-action=\"try-notification\"]").addEventListener("click", function (event){

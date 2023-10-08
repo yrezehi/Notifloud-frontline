@@ -27,7 +27,10 @@ var NotifloudNotification = function () {
         updateNotificationCount(notificationsCount);
 
         for(var notification of notifications){
-            createNotificationElement(notification["title"], notification["description"]);
+            var notificationElement = createNotificationElement(notification["title"], notification["description"]);
+            if(notification["callback"]){
+                notificationElement.addEventListener("click", notification["callback"]);
+            }
         }
     }
 
@@ -62,17 +65,16 @@ var NotifloudNotification = function () {
     function createElement(serialized) {
         var temporaryElement = document.createElement("div");
         temporaryElement.innerHTML += serialized;
-        notificationContainerElement.appendChild(temporaryElement.firstElementChild);
-        return temporaryElement.firstElementChild;
+        var firstElement = temporaryElement.firstElementChild; 
+        notificationContainerElement.appendChild(firstElement);
+        return firstElement;
     }
 
     (function setup(){
         notificationContainerElement = document.querySelector(`.${NOTIFICATION_CONTAINER_CLASS}`);
         notificationBellElement = document.querySelector(`.${NOTIFICATION_BELL_CLASS}`);
         notificationBellCountElement = notificationBellElement.querySelector(`.${NOTIFICATION_COUNT_CLASS}`);
-
         notificationContainerElement.style.right = `-${notificationContainerElement.parentNode.offsetWidth - notificationContainerElement.offsetWidth}px`;
-
         notificationBellElement.addEventListener("mouseover", on);
         notificationContainerElement.addEventListener("mouseleave", off);
     })();
