@@ -10,7 +10,7 @@
 
 ## Demo 
 
-- <a href="yrezehi.github.io/Notifloud/example">Live Demo</a>
+- <a href="https://yrezehi.github.io/Notifloud/example">Live Demo</a>
 
 ## Installation
 
