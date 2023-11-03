@@ -10,7 +10,7 @@
 
 ## Demo 
 
-- <a href="yrezehi.github.io/Notifloud/example">Live Demo</a>
+- <a href="https://yrezehi.github.io/Notifloud/example">Live Demo</a>
 
 ## Installation
 
@@ -18,8 +18,8 @@
 
 ### Toast
 
-1 - Refrence `toast.css` to your page
-2 - Refrence `toast.js` to your page
+1. Refrence `toast.css` to your page
+2. Refrence `toast.js` to your page
 
 ### Usage
 
@@ -29,8 +29,8 @@ NotifloudToast.success("Success !", "Write success message here");
 
 ### Notification
 
-1 - Refrence `notification.css` to your page
-2 - Refrence `notification.js` to your page
+1. Refrence `notification.css` to your page
+2. Refrence `notification.js` to your page
 
 ### Usage
 
