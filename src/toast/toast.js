@@ -8,6 +8,7 @@ var NotifloudToast = function () {
 
     var configuration = {
         duration: 5000, // 5 seconds
+        direction: "ltr"
     };
 
     var icons = {

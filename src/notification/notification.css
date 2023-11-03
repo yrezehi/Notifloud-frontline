@@ -66,6 +66,10 @@
     scrollbar-width: none; 
 }
 
+.notifications-container.rtl {
+    direction: rtl;
+}
+
 .notifications-container::-webkit-scrollbar { 
     display: none; 
 }
@@ -93,10 +97,14 @@
     position: absolute;
     content: "";
     width: 0.25rem;
-    inset: 0.65rem auto 0.65rem 0.5rem;
+    inset: 0.65rem auto 0.65rem 0.75rem;
     border-radius: 0.125rem;
     background: hsla(0, 0%, 40%, 0.5);
     transition: transform 300ms ease;
+}
+
+.notification.rtl::after{
+    inset: 0.65rem auto 0.65rem calc(100% - 0.75rem) !important;
 }
 
 .notification:hover::after,

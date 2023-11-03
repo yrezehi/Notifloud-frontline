@@ -81,7 +81,8 @@ var NotifloudNotification = function () {
 
     return function () {
         return Object.freeze({
-            set: set
+            set: set,
+            configure: configure
         });
     }();
 }();
