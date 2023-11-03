@@ -89,6 +89,17 @@ var NotifloudToast = function () {
         });
     }
 
+    function configure(properties){
+        Object.keys(properties).forEach(property => {
+            if (configurationProperty in configuration){
+                configuration[prpropertyop] = properties[property];
+            }
+            else { 
+                console.error(`property named ${property} was not found!`);
+            }
+        });
+    }
+
     return function () {
         initialize();
         return Object.freeze({
@@ -98,6 +109,7 @@ var NotifloudToast = function () {
             warning: function (title, content) { create(title, content, "warning") },
             loading: function (title, content) { create(title, content, "loading") },
 
+            configure: configure,
             close: closeAll
         });
     }();

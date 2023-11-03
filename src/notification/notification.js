@@ -10,6 +10,11 @@ var NotifloudNotification = function () {
 
     var notificationsCount = 0;
 
+    var configuration = {
+        duration: 5000, // 5 seconds
+        direction: "ltr"
+    };
+
     function off(){
         notificationContainerElement.style.right = `-${notificationContainerElement.parentNode.offsetWidth - notificationContainerElement.offsetWidth}px`;
         notificationBellElement.style.right = "0";
@@ -45,7 +50,7 @@ var NotifloudNotification = function () {
     }
 
     function createNotificationElement(title, description){
-        return createElement(`
+        return createNotificationElement(`
             <div class="notification">
                 <div class="notification-title-container">
                     <span class="notification-title">
@@ -62,12 +67,23 @@ var NotifloudNotification = function () {
         `);
     }
 
-    function createElement(serialized) {
+    function createNotificationElement(serialized) {
         var temporaryElement = document.createElement("div");
         temporaryElement.innerHTML += serialized;
         var firstElement = temporaryElement.firstElementChild; 
         notificationContainerElement.appendChild(firstElement);
         return firstElement;
+    }
+
+    function configure(properties){
+        Object.keys(properties).forEach(property => {
+            if (configurationProperty in configuration){
+                configuration[prpropertyop] = properties[property];
+            }
+            else { 
+                console.error(`property named ${property} was not found!`);
+            }
+        });
     }
 
     (function setup(){
